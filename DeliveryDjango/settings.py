@@ -30,18 +30,32 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
 
     'customer',
     'restaurant',
 
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,6 +142,14 @@ MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+ACCOUNT_ADAPTER = "restaurant.account_adapter.NoNewUsersAccountAdapter"
+LOGIN_REDIRECT_URL = '/'
+
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
 
 
 

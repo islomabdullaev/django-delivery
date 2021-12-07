@@ -17,8 +17,7 @@ class About(View):
 class Order(View):
     def get(self, request, *args, **kwargs):
         # get every item from each category
-        appetizers = MenuItem.objects.filter(
-            category__name__contains='Appetizer')
+        appetizers = MenuItem.objects.filter(category__name__contains='Appetizer')
         entres = MenuItem.objects.filter(category__name__contains='Entre')
         desserts = MenuItem.objects.filter(category__name__contains='Dessert')
         drinks = MenuItem.objects.filter(category__name__contains='Drink')
@@ -75,14 +74,14 @@ class Order(View):
         )
         order.items.add(*item_ids)
 
-        body = (
+        message = (
             "Thank you for your order ! Your food is being prepared and will be ordered soon ! \n"
             f"f'Total Price: ${price}'"
         )
 
         send_mail(
             "Thank You For Your Order !",
-            body,
+            message,
             "example@example.com",
             [email],
             fail_silently=False,
