@@ -1,5 +1,4 @@
 {% extends 'restaurant/base.html' %}
-
 {% block content %}
     <div class="container" style="margin-top: 50px">
         <div class="row justify-content-center">
@@ -68,9 +67,9 @@
                             <td>{{ order.zip_code }}</td>
                             <td>
                                 {% if order.is_paid %}
-                                    <i class="fa fas fa-check text-success"></i>
+                                    <i class="fas fa-check text-success"></i>
                                 {% else %}
-                                    <i class="fa fas fa-times text-danger"></i>
+                                    <i class="fas fa-times text-danger"></i>
                                 {% endif %}
                             </td>
                         </tr>
