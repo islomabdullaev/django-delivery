@@ -137,10 +137,10 @@ STATIC_ROOT = BASE_DIR / "static"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_ADAPTER = "restaurant.account_adapter.NoNewUsersAccountAdapter"
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -148,3 +148,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'iislom280@gmail.com'
+EMAIL_HOST_PASSWORD = 'Islom2002'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+

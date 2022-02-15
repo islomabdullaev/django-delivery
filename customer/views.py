@@ -77,15 +77,10 @@ class Order(View):
         )
         order.items.add(*item_ids)
 
-        message = (
-            "Thank you for your order ! Your food is being prepared and will be ordered soon ! \n"
-            f"f'Total Price: ${price}'"
-        )
-
         send_mail(
-            "Thank You For Your Order !",
-            message,
-            "example@example.com",
+            'Order has been accepted !',
+            'Thank you for your order your food will be ordered as soon as possible, total price: ' + f"{price}",
+            'iislom280@gmail.com',
             [email],
             fail_silently=False,
         )
@@ -113,8 +108,8 @@ class MenuSearch(View):
     def get(self, request, *args, **kwargs):
         q = self.request.GET.get("q")
         menu = MenuItem.objects.filter(
-                Q(name__icontains=q) | Q(price__icontains=q) | Q(description__icontains=q)
-            )
+            Q(name__icontains=q) | Q(price__icontains=q) | Q(description__icontains=q)
+        )
         context = {
             "menu_items": menu,
         }
